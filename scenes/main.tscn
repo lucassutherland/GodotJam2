@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://du6pb57ikouci"]
 
 [ext_resource type="PackedScene" uid="uid://dgchp7rd1r03k" path="res://scenes/lil_dude.tscn" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://baei8lt2awtcv" path="res://assets/skybox panoramas/moon_rise_2k.exr" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://ddogrcbvlygvk" path="res://scripts/lil_dude.gd" id="2_0wfyh"]
-[ext_resource type="Texture2D" uid="uid://4g8mwgiktia2" path="res://assets/skybox panoramas/moon_rise.exr" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://ig38g3po6q74" path="res://scenes/island.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://bn4rcepxchits" path="res://scenes/ball_thingy.tscn" id="5_tbgi4"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jyhfs"]
-panorama = ExtResource("3_sugp2")
+panorama = ExtResource("1_tbgi4")
 
 [sub_resource type="Sky" id="Sky_tbgi4"]
 sky_material = SubResource("PanoramaSkyMaterial_jyhfs")
