@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://du6pb57ikouci"]
+[gd_scene load_steps=10 format=3 uid="uid://du6pb57ikouci"]
 
 [ext_resource type="PackedScene" uid="uid://dgchp7rd1r03k" path="res://scenes/lil_dude.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://baei8lt2awtcv" path="res://assets/skybox panoramas/moon_rise_2k.exr" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://ddogrcbvlygvk" path="res://scripts/lil_dude.gd" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://ig38g3po6q74" path="res://scenes/island.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://bn4rcepxchits" path="res://scenes/ball_thingy.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://djjp58grntfgk" path="res://scenes/string_lights.tscn" id="6_tefeu"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jyhfs"]
 panorama = ExtResource("1_tbgi4")
@@ -24,7 +25,9 @@ environment = SubResource("Environment_0wfyh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.846686, 0.0320571, 0.531127, -0.532093, 0.0510104, 0.845148, 0, -0.998183, 0.0602471, 6.6362, 5.6973, 0)
+light_color = Color(0.328653, 1, 0.897614, 1)
 light_energy = 0.0
+light_indirect_energy = 16.0
 
 [node name="Lil Dude" parent="." instance=ExtResource("1_o5qli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00474, 0)
@@ -43,6 +46,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.4851, -7.69206, -19.9804)
 
 [node name="StaticBody3D" parent="StaticBody3D/StaticBody3D" instance=ExtResource("4_jyhfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.65385, -7.69206, 24.0844)
+
+[node name="StaticBody3D2" parent="StaticBody3D/StaticBody3D" instance=ExtResource("4_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5577, 4.53498, -12.6749)
 
 [node name="Ball thingies" type="Node3D" parent="."]
 
@@ -78,3 +84,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.2414, -14.2555, 7.45926)
 
 [node name="Ball thingy11" parent="Ball thingies" instance=ExtResource("5_tbgi4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.0583, -14.2555, 4.09618)
+
+[node name="StringLights" parent="." instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9366, 0, -7.84015)
+
+[node name="PointA" parent="StringLights" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4857, -1.15956, -3.39645)
+
+[node name="PointB" parent="StringLights" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11264, -7.78037, -15.4543)
+
+[node name="StringLights2" parent="." instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.9267, -10.9769, -13.6063)
+
+[node name="PointA" parent="StringLights2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.99761, 2.39571, -2.6764)
+
+[node name="PointB" parent="StringLights2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46008, -4.8543, 11.5831)
+
+[node name="Ball thingy" parent="." instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.5455, -0.793115, -30.4285)
+
+[node name="Ball thingy2" parent="." instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.2392, 1.29472, -33.1198)
+
+[node name="Ball thingy3" parent="." instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.7684, -1.4388, -36.9138)
+
+[node name="Ball thingy4" parent="." instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.9242, -0.513429, -27.4664)
+
+[node name="Ball thingy5" parent="." instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.8458, -1.9317, -37.2048)
+
+[editable path="StringLights"]
+[editable path="StringLights2"]

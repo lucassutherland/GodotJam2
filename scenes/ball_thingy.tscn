@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bn4rcepxchits"]
 
-[ext_resource type="Script" uid="uid://b4v6x2adkormj" path="res://scenes/ball_thingy.gd" id="1_cwrhf"]
+[ext_resource type="Script" uid="uid://b4v6x2adkormj" path="res://scripts/ball_thingy.gd" id="1_cwrhf"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sugp2"]
 
@@ -23,7 +23,7 @@ mesh = SubResource("SphereMesh_jyhfs")
 surface_material_override/0 = SubResource("StandardMaterial3D_sgp6g")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-omni_range = 8.278
+omni_range = 8.708
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

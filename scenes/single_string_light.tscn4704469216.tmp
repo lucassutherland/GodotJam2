@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvwpdo0krbm2c"]
+
+[ext_resource type="Script" uid="uid://42s1w8b2yf5w" path="res://scenes/single_string_light.gd" id="1_v5312"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_6syid"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5312"]
+albedo_color = Color(1, 1, 0.360784, 1)
+emission_enabled = true
+emission = Color(1, 1, 0.388235, 1)
+
+[node name="SingleStringLight" type="Node3D"]
+script = ExtResource("1_v5312")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh = SubResource("SphereMesh_6syid")
+surface_material_override/0 = SubResource("StandardMaterial3D_v5312")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D"]
+visible = false
+light_color = Color(1, 1, 0, 1)
+omni_range = 1.0
+
+[node name="Timer" type="Timer" parent="."]
