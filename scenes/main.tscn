@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://du6pb57ikouci"]
 
-[ext_resource type="PackedScene" uid="uid://d3c1vc6fbyqnx" path="res://scenes/lil_dude.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://dgchp7rd1r03k" path="res://scenes/lil_dude.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://ddogrcbvlygvk" path="res://scripts/lil_dude.gd" id="2_0wfyh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sgp6g"]
@@ -27,7 +27,7 @@ emission = Color(1, 0.933333, 0, 1)
 shape = SubResource("BoxShape3D_sgp6g")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
 mesh = SubResource("BoxMesh_o5qli")
 surface_material_override/0 = SubResource("StandardMaterial3D_0wfyh")
 
