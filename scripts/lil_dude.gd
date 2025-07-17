@@ -6,6 +6,8 @@ extends CharacterBody3D
 const SPEED = 10.0
 const JUMP_VELOCITY = 8.0
 const MOUSE_SENSITIVITY = 0.005
+
+
 var yoinked_mouse = true;
 
 func _ready():

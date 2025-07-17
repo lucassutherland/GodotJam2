@@ -70,6 +70,8 @@ shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 3
 
 [node name="LilDude" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.545, 0)

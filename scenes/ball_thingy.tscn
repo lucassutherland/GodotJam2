@@ -10,6 +10,8 @@
 emission = Color(1, 0.933333, 0, 1)
 
 [node name="Ball thingy" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_cwrhf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
