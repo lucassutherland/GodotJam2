@@ -49,5 +49,7 @@ transform = Transform3D(0.846686, 0.0320571, 0.531127, -0.532093, 0.0510104, 0.8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00474, 0)
 script = ExtResource("2_0wfyh")
 
-[node name="Camera3D" type="Camera3D" parent="Lil Dude"]
-transform = Transform3D(1, 0, 0, 0, 0.971879, 0.235481, 0, -0.235481, 0.971879, 0, 3.58853, 4.94553)
+[node name="CameraArm" type="Node3D" parent="Lil Dude"]
+
+[node name="Camera3D" type="Camera3D" parent="Lil Dude/CameraArm"]
+transform = Transform3D(1, 0, 0, 0, 0.952836, 0.303484, 0, -0.303484, 0.952836, 0, 3.63859, 6.11164)
