@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dgchp7rd1r03k" path="res://scenes/lil_dude.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://baei8lt2awtcv" path="res://assets/skybox panoramas/moon_rise_2k.exr" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://ddogrcbvlygvk" path="res://scripts/lil_dude.gd" id="2_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://ig38g3po6q74" path="res://scenes/island.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://ddxvuuowye8r5" path="res://scenes/island.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://bn4rcepxchits" path="res://scenes/ball_thingy.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://djjp58grntfgk" path="res://scenes/string_lights.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bjbqo4ii3j2tl" path="res://scenes/platform.tscn" id="7_o6xl0"]
@@ -20,6 +20,21 @@ background_mode = 2
 background_energy_multiplier = 0.33
 sky = SubResource("Sky_tbgi4")
 
+[sub_resource type="Animation" id="Animation_tipki"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-40.1546, -7.42956, -22.0682)]
+}
+
 [sub_resource type="Animation" id="Animation_o6xl0"]
 resource_name = "platform_move"
 length = 15.0
@@ -35,21 +50,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-40.1546, -7.42956, -22.0682), Vector3(-71.8559, -3.58679, -29.481)]
-}
-
-[sub_resource type="Animation" id="Animation_tipki"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-40.1546, -7.42956, -22.0682)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_85g3d"]

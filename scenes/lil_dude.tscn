@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://dgchp7rd1r03k"]
+[gd_scene load_steps=10 format=4 uid="uid://dgchp7rd1r03k"]
 
 [ext_resource type="Material" uid="uid://bjf7lpojjl0d0" path="res://Material/LilDudeTop.tres" id="1_noarx"]
 [ext_resource type="Material" uid="uid://cfnqyr8cbyhqp" path="res://Material/LilDudeBot.tres" id="2_a0tk4"]
 [ext_resource type="ArrayMesh" uid="uid://dj2sdx6qv5qox" path="res://assets/LilDudeOutline.obj" id="3_vlhae"]
+[ext_resource type="PackedScene" uid="uid://b1a00g0vw76t" path="res://scenes/Bottle.tscn" id="4_bgbaq"]
+[ext_resource type="PackedScene" uid="uid://bkm3domw60gsx" path="res://scenes/Rain.tscn" id="5_nrxey"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_hhvjy"]
 _surfaces = [{
@@ -86,3 +88,8 @@ shape = SubResource("CapsuleShape3D_bidax")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.00646818, 0.569763, 0.000302553)
 material_override = SubResource("StandardMaterial3D_bgbaq")
 mesh = ExtResource("3_vlhae")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("4_bgbaq")]
+transform = Transform3D(0.692269, 0.721639, 0, -0.721639, 0.692269, 0, 0, 0, 1, -0.58265, 1.26175, 1.17454)
+
+[node name="GPUParticles3D" parent="." instance=ExtResource("5_nrxey")]

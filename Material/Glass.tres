@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://u8b4nexvvaga"]
+
+[resource]
+transparency = 1
+no_depth_test = true
+albedo_color = Color(1, 1, 1, 0.313726)
+metallic_specular = 0.0
+roughness = 0.0
+emission = Color(0.0660918, 0.131484, 0.13748, 1)
+emission_energy_multiplier = 0.55
+rim_enabled = true
+refraction_enabled = true
+refraction_scale = -0.46
