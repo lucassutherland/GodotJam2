@@ -1,4 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://du6pb57ikouci"]
+[gd_scene load_steps=8 format=3 uid="uid://du6pb57ikouci"]
+
+[ext_resource type="PackedScene" uid="uid://d3c1vc6fbyqnx" path="res://scenes/node_3d.tscn" id="1_o5qli"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sgp6g"]
 size = Vector3(10, 1, 10)
@@ -43,3 +45,6 @@ transform = Transform3D(1, 0, 0, 0, 0.89705, 0.441929, 0, -0.441929, 0.89705, 0,
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.846686, 0.0320571, 0.531127, -0.532093, 0.0510104, 0.845148, 0, -0.998183, 0.0602471, 6.6362, 5.6973, 0)
+
+[node name="Node3D" parent="." instance=ExtResource("1_o5qli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63418, 0.5, 2.21792)
