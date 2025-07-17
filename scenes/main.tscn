@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://du6pb57ikouci"]
+[gd_scene load_steps=15 format=3 uid="uid://du6pb57ikouci"]
 
 [ext_resource type="PackedScene" uid="uid://dgchp7rd1r03k" path="res://scenes/lil_dude.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://baei8lt2awtcv" path="res://assets/skybox panoramas/moon_rise_2k.exr" id="1_tbgi4"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bn4rcepxchits" path="res://scenes/ball_thingy.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://djjp58grntfgk" path="res://scenes/string_lights.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bjbqo4ii3j2tl" path="res://scenes/platform.tscn" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://dg18d6u2vio06" path="res://scenes/column.tscn" id="8_tipki"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jyhfs"]
 panorama = ExtResource("1_tbgi4")
@@ -168,6 +169,50 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.18368, 7.60801, 13.8004)
 [node name="PointB" parent="strings of lights/StringLights3" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7065, 0, -2.79822)
 
+[node name="StringLights4" parent="strings of lights" instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.5785, 2.23288, -27.3782)
+sag = -3
+interval = 1
+
+[node name="PointA" parent="strings of lights/StringLights4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.496811, 2.27225, 2.03299)
+
+[node name="PointB" parent="strings of lights/StringLights4" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39494, 2.18355, -2.13751)
+
+[node name="StringLights5" parent="strings of lights" instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.4762, 3.44066, -34.0305)
+sag = -3
+interval = 1
+
+[node name="PointA" parent="strings of lights/StringLights5" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.68016, 0.56026, 3.70696)
+
+[node name="PointB" parent="strings of lights/StringLights5" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13389, 0.792159, -3.56519)
+
+[node name="StringLights6" parent="strings of lights" instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -87.7774, 1.69735, -40.7111)
+sag = -3
+interval = 1
+
+[node name="PointA" parent="strings of lights/StringLights6" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8248, 2.64631, 2.30123)
+
+[node name="PointB" parent="strings of lights/StringLights6" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.32966, 2.3675, -0.704033)
+
+[node name="StringLights7" parent="strings of lights" instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.6789, -3.23291, -38.4918)
+sag = -3
+interval = 1
+
+[node name="PointA" parent="strings of lights/StringLights7" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.90051, 7.26072, -2.90323)
+
+[node name="PointB" parent="strings of lights/StringLights7" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20447, 6.57877, 1.47102)
+
 [node name="Platform" parent="." instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.1546, -7.42956, -22.0682)
 
@@ -176,7 +221,29 @@ libraries = {
 &"": SubResource("AnimationLibrary_85g3d")
 }
 autoplay = "platform_move"
+speed_scale = 1.964
+
+[node name="columns" type="Node3D" parent="."]
+
+[node name="Column" parent="columns" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90, -3, -38)
+
+[node name="Column2" parent="columns" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.8552, -3.2329, -30.0078)
+
+[node name="Column3" parent="columns" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.6996, -3.2329, -24.8376)
+
+[node name="Column4" parent="columns" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.1337, -3.2329, -41.7104)
+
+[node name="Column5" parent="columns" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.0663, -3.2329, -36.6254)
 
 [editable path="strings of lights/StringLights"]
 [editable path="strings of lights/StringLights2"]
 [editable path="strings of lights/StringLights3"]
+[editable path="strings of lights/StringLights4"]
+[editable path="strings of lights/StringLights5"]
+[editable path="strings of lights/StringLights6"]
+[editable path="strings of lights/StringLights7"]

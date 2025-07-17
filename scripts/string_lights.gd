@@ -4,6 +4,7 @@ extends Node3D
 @onready var point_b = $PointB
 
 @export var sag = -5
+@export var interval = 2
 const SINGLE_STRING_LIGHT = preload("res://scenes/single_string_light.tscn")
 
 # Called when the node enters the scene tree for the first time.
@@ -17,7 +18,7 @@ func _ready():
 	bez.add_point(point_a.position, Vector3.ZERO, sag)
 	bez.add_point(point_b.position, sag, Vector3.ZERO)
 	
-	bez.bake_interval = 2
+	bez.bake_interval = interval
 	
 	
 	for point in bez.get_baked_points():
