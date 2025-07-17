@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn4rcepxchits"]
+
+[ext_resource type="Script" uid="uid://b4v6x2adkormj" path="res://scenes/ball_thingy.gd" id="1_cwrhf"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sugp2"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_jyhfs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgp6g"]
+emission_enabled = true
+emission = Color(1, 0.933333, 0, 1)
+
+[node name="Ball thingy" type="RigidBody3D"]
+script = ExtResource("1_cwrhf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_sugp2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00962508, 0.00217545, 0)
+mesh = SubResource("SphereMesh_jyhfs")
+surface_material_override/0 = SubResource("StandardMaterial3D_sgp6g")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
