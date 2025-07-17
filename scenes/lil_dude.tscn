@@ -81,6 +81,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26123, 0)
 shape = SubResource("CapsuleShape3D_bidax")
 
 [node name="LilDudeOutline" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00646818, 0.569763, 0.000302553)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.00646818, 0.569763, 0.000302553)
 material_override = SubResource("StandardMaterial3D_bgbaq")
 mesh = ExtResource("3_vlhae")
