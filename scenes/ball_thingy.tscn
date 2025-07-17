@@ -7,7 +7,6 @@
 [sub_resource type="SphereMesh" id="SphereMesh_jyhfs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgp6g"]
-emission_enabled = true
 emission = Color(1, 0.933333, 0, 1)
 
 [node name="Ball thingy" type="RigidBody3D"]
@@ -22,7 +21,9 @@ mesh = SubResource("SphereMesh_jyhfs")
 surface_material_override/0 = SubResource("StandardMaterial3D_sgp6g")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
+omni_range = 8.278
 
 [node name="Timer" type="Timer" parent="."]
+autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

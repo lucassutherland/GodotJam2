@@ -1,24 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://du6pb57ikouci"]
+[gd_scene load_steps=9 format=3 uid="uid://du6pb57ikouci"]
 
 [ext_resource type="PackedScene" uid="uid://dgchp7rd1r03k" path="res://scenes/lil_dude.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://ddogrcbvlygvk" path="res://scripts/lil_dude.gd" id="2_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://4g8mwgiktia2" path="res://assets/skybox panoramas/moon_rise.exr" id="3_sugp2"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_sgp6g"]
-size = Vector3(10, 1, 10)
-
-[sub_resource type="BoxMesh" id="BoxMesh_o5qli"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0wfyh"]
-albedo_color = Color(1.56425e-07, 0.372959, 0.164758, 1)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_sugp2"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_jyhfs"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgp6g"]
-emission_enabled = true
-emission = Color(1, 0.933333, 0, 1)
+[ext_resource type="PackedScene" path="res://scenes/island.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bn4rcepxchits" path="res://scenes/ball_thingy.tscn" id="5_tbgi4"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jyhfs"]
 panorama = ExtResource("3_sugp2")
@@ -28,40 +14,17 @@ sky_material = SubResource("PanoramaSkyMaterial_jyhfs")
 
 [sub_resource type="Environment" id="Environment_0wfyh"]
 background_mode = 2
-background_energy_multiplier = 0.5
+background_energy_multiplier = 0.33
 sky = SubResource("Sky_tbgi4")
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_sugp2"]
-
-[sub_resource type="Compositor" id="Compositor_sugp2"]
 
 [node name="Main" type="Node3D"]
 
-[node name="Ground" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
-shape = SubResource("BoxShape3D_sgp6g")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
-mesh = SubResource("BoxMesh_o5qli")
-surface_material_override/0 = SubResource("StandardMaterial3D_0wfyh")
-
-[node name="Ball thingy" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.70719, 3.41884, 4.89804)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball thingy"]
-shape = SubResource("SphereShape3D_sugp2")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ball thingy"]
-mesh = SubResource("SphereMesh_jyhfs")
-surface_material_override/0 = SubResource("StandardMaterial3D_sgp6g")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Ball thingy"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0wfyh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.846686, 0.0320571, 0.531127, -0.532093, 0.0510104, 0.845148, 0, -0.998183, 0.0602471, 6.6362, 5.6973, 0)
+light_energy = 0.0
 
 [node name="Lil Dude" parent="." instance=ExtResource("1_o5qli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00474, 0)
@@ -72,7 +35,46 @@ script = ExtResource("2_0wfyh")
 [node name="Camera3D" type="Camera3D" parent="Lil Dude/CameraArm"]
 transform = Transform3D(1, 0, 0, 0, 0.952836, 0.303484, 0, -0.303484, 0.952836, 0, 3.63859, 6.11164)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_0wfyh")
-camera_attributes = SubResource("CameraAttributesPractical_sugp2")
-compositor = SubResource("Compositor_sugp2")
+[node name="StaticBody3D" parent="." instance=ExtResource("4_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0661435, -0.69282, -0.152041)
+
+[node name="StaticBody3D" parent="StaticBody3D" instance=ExtResource("4_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.4851, -7.69206, -19.9804)
+
+[node name="StaticBody3D" parent="StaticBody3D/StaticBody3D" instance=ExtResource("4_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.65385, -7.69206, 24.0844)
+
+[node name="Ball thingies" type="Node3D" parent="."]
+
+[node name="Ball thingy" parent="Ball thingies" instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.93209, 1.99941, -4.02299)
+
+[node name="Ball thingy2" parent="Ball thingies" instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.47076, 2.82544, -0.306779)
+
+[node name="Ball thingy3" parent="Ball thingies" instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1122, 4.31542, -3.40062)
+
+[node name="Ball thingy4" parent="Ball thingies" instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4499, -3.63817, -16.749)
+
+[node name="Ball thingy5" parent="Ball thingies" instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.6869, -6.545, -22.1197)
+
+[node name="Ball thingy6" parent="Ball thingies" instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.488, -3.96736, -24.9203)
+
+[node name="Ball thingy7" parent="Ball thingies" instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.5273, -5.52014, -17.5991)
+
+[node name="Ball thingy8" parent="Ball thingies" instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.3667, -13.6459, -0.950161)
+
+[node name="Ball thingy9" parent="Ball thingies" instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.3667, -14.2555, 9.23622)
+
+[node name="Ball thingy10" parent="Ball thingies" instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.2414, -14.2555, 7.45926)
+
+[node name="Ball thingy11" parent="Ball thingies" instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.0583, -14.2555, 4.09618)
