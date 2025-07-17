@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://du6pb57ikouci"]
+[gd_scene load_steps=14 format=3 uid="uid://du6pb57ikouci"]
 
 [ext_resource type="PackedScene" uid="uid://dgchp7rd1r03k" path="res://scenes/lil_dude.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://baei8lt2awtcv" path="res://assets/skybox panoramas/moon_rise_2k.exr" id="1_tbgi4"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ig38g3po6q74" path="res://scenes/island.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://bn4rcepxchits" path="res://scenes/ball_thingy.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://djjp58grntfgk" path="res://scenes/string_lights.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://bjbqo4ii3j2tl" path="res://scenes/platform.tscn" id="7_o6xl0"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jyhfs"]
 panorama = ExtResource("1_tbgi4")
@@ -17,6 +18,44 @@ sky_material = SubResource("PanoramaSkyMaterial_jyhfs")
 background_mode = 2
 background_energy_multiplier = 0.33
 sky = SubResource("Sky_tbgi4")
+
+[sub_resource type="Animation" id="Animation_o6xl0"]
+resource_name = "platform_move"
+length = 15.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-40.1546, -7.42956, -22.0682), Vector3(-71.8559, -3.58679, -29.481)]
+}
+
+[sub_resource type="Animation" id="Animation_tipki"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-40.1546, -7.42956, -22.0682)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_85g3d"]
+_data = {
+&"RESET": SubResource("Animation_tipki"),
+&"platform_move": SubResource("Animation_o6xl0")
+}
 
 [node name="Main" type="Node3D"]
 
@@ -48,7 +87,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.4851, -7.69206, -19.9804)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.65385, -7.69206, 24.0844)
 
 [node name="StaticBody3D2" parent="StaticBody3D/StaticBody3D" instance=ExtResource("4_jyhfs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5577, 4.53498, -12.6749)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.5674, 4.53498, -12.6749)
 
 [node name="Ball thingies" type="Node3D" parent="."]
 
@@ -85,38 +124,59 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.2414, -14.2555, 7.45926)
 [node name="Ball thingy11" parent="Ball thingies" instance=ExtResource("5_tbgi4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.0583, -14.2555, 4.09618)
 
-[node name="StringLights" parent="." instance=ExtResource("6_tefeu")]
+[node name="Ball thingy12" parent="Ball thingies" instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.833, -0.793115, -30.4285)
+
+[node name="Ball thingy13" parent="Ball thingies" instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.5267, 1.29472, -33.1198)
+
+[node name="Ball thingy14" parent="Ball thingies" instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.0559, -1.4388, -36.9138)
+
+[node name="Ball thingy15" parent="Ball thingies" instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.2117, -0.513429, -27.4664)
+
+[node name="Ball thingy16" parent="Ball thingies" instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.1333, -1.9317, -37.2048)
+
+[node name="strings of lights" type="Node3D" parent="."]
+
+[node name="StringLights" parent="strings of lights" instance=ExtResource("6_tefeu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9366, 0, -7.84015)
 
-[node name="PointA" parent="StringLights" index="0"]
+[node name="PointA" parent="strings of lights/StringLights" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4857, -1.15956, -3.39645)
 
-[node name="PointB" parent="StringLights" index="1"]
+[node name="PointB" parent="strings of lights/StringLights" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11264, -7.78037, -15.4543)
 
-[node name="StringLights2" parent="." instance=ExtResource("6_tefeu")]
+[node name="StringLights2" parent="strings of lights" instance=ExtResource("6_tefeu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.9267, -10.9769, -13.6063)
 
-[node name="PointA" parent="StringLights2" index="0"]
+[node name="PointA" parent="strings of lights/StringLights2" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.99761, 2.39571, -2.6764)
 
-[node name="PointB" parent="StringLights2" index="1"]
+[node name="PointB" parent="strings of lights/StringLights2" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46008, -4.8543, 11.5831)
 
-[node name="Ball thingy" parent="." instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.5455, -0.793115, -30.4285)
+[node name="StringLights3" parent="strings of lights" instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7622, -8.04524, -7.7531)
 
-[node name="Ball thingy2" parent="." instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.2392, 1.29472, -33.1198)
+[node name="PointA" parent="strings of lights/StringLights3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.18368, 7.60801, 13.8004)
 
-[node name="Ball thingy3" parent="." instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.7684, -1.4388, -36.9138)
+[node name="PointB" parent="strings of lights/StringLights3" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7065, 0, -2.79822)
 
-[node name="Ball thingy4" parent="." instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.9242, -0.513429, -27.4664)
+[node name="Platform" parent="." instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.1546, -7.42956, -22.0682)
 
-[node name="Ball thingy5" parent="." instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.8458, -1.9317, -37.2048)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform"]
+libraries = {
+&"": SubResource("AnimationLibrary_85g3d")
+}
+autoplay = "platform_move"
 
-[editable path="StringLights"]
-[editable path="StringLights2"]
+[editable path="strings of lights/StringLights"]
+[editable path="strings of lights/StringLights2"]
+[editable path="strings of lights/StringLights3"]
